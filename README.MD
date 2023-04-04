@@ -1,7 +1,8 @@
-====
+
 IRadioPl 0.1
 ====
-parser Pl Internet Radio
+Parser Pl Internet Radio
+----
 >
 >
 > The script is written for educational purposes. 
