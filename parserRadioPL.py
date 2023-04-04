@@ -10,8 +10,8 @@ with open(file = 'linkPlRadio.m3u', mode = 'w') as file:
     text_for_file = f"""#EXTM3U\n""" 
     file.write(text_for_file)
 
-# Start looking at the page with links to Internet radio pages
 def add_links():
+    """Start looking at the page with links to Internet radio pages."""
     soup = BeautifulSoup(requests.get(url).content, "html5lib")
     links_all = []
     for a_tag in soup.findAll("a"):
@@ -23,8 +23,8 @@ def add_links():
         links_all.append(link)
     return links_all
 
-# Go through the internet radio pages and get the soup pages and wrinting in file *.json.
 def gettingLinks():
+    """Go through the internet radio pages and get the soup pages and wrinting in file *.json."""
     print("Recording is started!")
     for linkR in add_links():
         response = requests.get(linkR)
@@ -35,8 +35,8 @@ def gettingLinks():
                 file.write(text_for_file)
     print("Recording is complete!")
 
-# Selecting links and cleaning them up
-def washLink(): 
+def washLink():
+    """Selecting links and cleaning them up."""
     print("The laundry has begun!")
     comp = re.compile(r'stream={mp3:(\S*?)},')
     with open('allData.json', mode = 'r') as file:
