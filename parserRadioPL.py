@@ -1,9 +1,14 @@
+from os import remove
 import requests
 from bs4 import BeautifulSoup
 import re
 
 sUrl = 'https://radiofm-online.com'
 url = 'https://radiofm-online.com/radio-a-z'
+
+with open(file = 'linkPlRadio.m3u', mode = 'w') as file:
+    text_for_file = f"""#EXTM3U\n""" 
+    file.write(text_for_file)
 
 # Start looking at the page with links to Internet radio pages
 def add_links():
@@ -43,9 +48,9 @@ def washLink():
         with open(file = 'linkPlRadio.m3u', mode = 'a') as file:
             text_for_file = f"""{i[1:-1]}\n"""
             file.write(text_for_file)
+    remove('allData.json')
 
 if __name__ == '__main__':
-
     try:
         response = requests.get(url)
         print(response)

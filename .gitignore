@@ -2,6 +2,7 @@
 # Files this project
 allData.json
 linkPlRadio.m3u
+dist/
 
 # Byte-compiled / optimized / DLL files
 links-radio.M3U
